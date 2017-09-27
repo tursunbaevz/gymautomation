@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<div class="wrap">
+	<p>
+	  <strong>Title:</strong>
+	  <%= @gym.title %>
+	</p>
+
+	<%= link_to 'изменить', edit_gym_path(@gym) %> |
+	<%= link_to 'назад', gyms_path %>
+</div>

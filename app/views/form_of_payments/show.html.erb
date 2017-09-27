@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="wrap">
+	<p>
+	  <strong>Форма Оплаты:</strong>
+	  <%= @form_of_payment.title %>
+	</p>
+
+	<%= link_to 'изменить', edit_form_of_payment_path(@form_of_payment) %> |
+	<%= link_to 'назад', form_of_payments_path %>
+</div>

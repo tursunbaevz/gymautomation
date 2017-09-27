@@ -1,0 +1,164 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+ *= require_tree .
+ *= require_self
+ *= require font-awesome.min.css
+ *= require rails_bootstrap_forms
+
+
+
+ */
+
+@import "bootstrap";
+
+
+
+
+body {
+	margin: 0px;
+	padding: 0px;
+	background: #FFFFFF;
+	font-family: 'PT Serif', serif;
+}
+
+
+form {
+	padding-left: 200px;
+	padding-top: 70px;
+}
+
+li {
+	list-style: none;
+}
+
+
+a {
+	text-decoration: none !important;
+}
+
+
+.wrap {
+	padding-left: 200px;
+	padding-top: 55px;
+}
+
+
+#notice {
+	color: green;
+	text-align: center;
+}
+
+
+/*-------navbar-------*/
+
+.navbar{
+	background: #8451a1;
+}
+
+.nav-text {
+	color: #FFFFFF
+}
+
+
+
+
+/*-----------sidebar----------*/
+
+#sidebar{
+	background:  #322a38;
+	width: 175px;
+	display: block;
+	height: 100%;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	padding-top: 40px;
+/*	transition: left 0.3s linear;*/
+}
+
+
+
+#sidebar ul {
+	margin: 0px;
+	padding: 0px;
+	padding-top: 30px;
+}
+
+#sidebar ul li {
+	list-style: none;
+	padding-top: 15px;
+
+}
+
+#sidebar ul li a{
+	color: #ccc;
+	display: block;
+	width: 175px;
+	padding: 10px;
+	padding-left: 10px;
+	text-decoration: none !important;
+	font-size: 15px;
+}
+
+#sidebar ul li a:hover{
+	color: #FFFFFF;
+}
+
+
+#sidebar ul li a i {
+    color: #00BDF3;
+  	margin-right: 0.5em;
+}
+
+
+/*-------buttons--------*/
+
+.fa-list,
+.fa-pencil {
+	width: auto;
+	
+}
+tr td .btn-primary {
+	background: #8451a1;
+	border-color: #8451a1;
+}
+
+tr td .btn-primary:hover {
+	background-color: #845185;	
+	border-color: #8451a1;
+}
+
+#btn-action {
+	padding-top: 20px;
+}
+
+.btn-success {
+	background: #00BDF3;
+	border-color: #00BDF3;
+
+}
+
+.btn-success:hover {
+	background:#00BDF3;
+	border-color:#fff;
+}
+
+
+
+
+
+
+
+
+

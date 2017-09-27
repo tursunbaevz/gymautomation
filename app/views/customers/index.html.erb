@@ -1,0 +1,50 @@
+  <!-- notice -->
+  <p id="notice"><%= notice %></p>
+  <br>
+  <!-- notice end -->
+
+<!-- table -->
+<div class="wrap">
+  <div class="container">
+      <table class="table table-sm table-hover">
+        <thead class="thead-default">
+          <tr class="titles">
+            <th><i class="fa fa-user fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;Имя</th>
+            <th>телефон</th>
+            <th>Вид спорта</th>
+            <th>Оплата</th>
+            <th>Форма оплаты</th>
+            <th style="width: 36px;"></th>
+            <th style="width: 36px;"></th>
+          </tr>
+        </thead>
+       
+        <tbody>
+          <% @customers.each do |customer| %>
+            <tr>
+              <td><a href="<%= customer_path(customer) %> "><%= customer.name %></a></td>
+              <td><%= customer.number.to_i %></td>
+              <td><%= customer.payments.last(1).map{|g| g.gym.nil? ? "" :  g.gym.title }.join(" ")  %></td>
+              <!-- <td><%#= customer.payments.last(1).map{|g| g.gym.nil? ? "" :  g.gym.price.to_i }.join(" ")%>.сом </td> -->
+              <td><%= customer.payments.last(1).map{|p| p.debt.to_i}.join(" ") %>.сом</td>
+              <td></td>
+              <td><%= link_to '', edit_customer_path(customer), class: 'fa fa-pencil fa-fw btn btn-primary' %></td>
+              <td><%= link_to '', customer, method: :delete, data: { confirm: 'Are you sure?' } ,class: 'fa fa-trash-o btn btn-danger' %></td>
+            
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+<!-- table end -->
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+

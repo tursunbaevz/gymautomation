@@ -1,0 +1,2 @@
+module FormOfPaymentsHelper
+end

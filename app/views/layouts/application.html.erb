@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>Gymautomation</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+	
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+
+  </head>
+
+	<body>
+		<div class="navbar fixed-top navbar-light bg-faded">
+			<div class="navbar-header">
+				<a href="<%= customers_path %>" class="navbar-brand">Gym</a>
+			</div>
+		</div>
+		<div id="sidebar">
+			<div class="sidebar-white"></div>
+			<ul class="nav nav-sidebar">
+				
+				<li class="main-page" id="active"> <a href="<%= root_path %>"?><i class="fa fa-pencil-square fa-lg" aria-hidden="true"></i>Добавить клиента</a></li>
+			
+				<li class="sidebar-cusomers"> <a href="<%= customers_path %>"><i class="fa fa-database fa-lg" aria-hidden="true"></i>База клиентов</a>
+				</li>
+
+				<li class="sidebar-gyms"><a href="<%= gyms_path %>"><i class="demo-icon icon-tabletennis fa-lg"></i>Виды спорта</a>
+				</li>
+
+				<li class="sidebar-payment"><a href="<%=  form_of_payments_path  %>"><i class="fa fa-calendar-minus-o fa-lg" aria-hidden="true"></i>форма оплаты</a></li>
+
+				<li class="sidebar-price"><a href="<%= payments_path  %> "><i class="fa fa-money fa-lg" aria-hidden="true"></i>Виды оплат</a> </li>
+
+			</ul>
+		</div>
+    	<%= yield %>	
+  </body>
+</html>
+
+	
+	

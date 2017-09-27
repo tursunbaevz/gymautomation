@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+<div class="wrap"></div>
+	<p>
+	  <strong>Price:</strong>
+	  <%= @payment.price %>
+	</p>
+
+	<p>
+	  <strong>Payment date:</strong>
+	  <%= @payment.payment_date %>
+	</p>
+
+	<%= link_to 'Edit', edit_payment_path(@payment) %> |
+	<%= link_to 'Back', payments_path %>
+</div>

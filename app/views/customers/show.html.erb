@@ -1,0 +1,66 @@
+<!-- notice -->
+<div class="container">
+
+<p id="notice"><%= notice %></p>
+
+<!-- notice end -->
+
+<div class="wrap">
+	<!--  Вся информация клиента - all customers info  -->
+	<div class="created-date">
+		<time datetime="2014-09-24" class="date-as-calendar inline-flex size2x">
+			<span class="day"><%= @customer.published_on.strftime("%e") %></span>
+			<span class="month"><%= @customer.published_on.strftime("%B") %>	</span>
+			<span class="year"><%= @customer.published_on.strftime("%Y") %></span>
+		</time>
+
+
+	<div class="info-show">
+		  <strong>Имя &nbsp; - &nbsp; </strong>
+		  <%= @customer.name %>
+
+		<br>
+
+		 
+		тел1: &nbsp;<%= @customer.number.to_i %>   <br>
+		тел2: &nbsp;<%= @customer.second_number.to_i %> 
+	</div>
+
+</div>
+
+<%= link_to 'изменить', edit_customer_path(@customer) %> |
+<%= link_to 'назад', customers_path %>
+
+
+<!-- table -->
+	<table class="table table-bordered">
+		<thead class="thead-inverse">	
+			<tr>
+				<th>Дата оплаты</th>		
+				<th>Вид спорта</th>		
+				<th>Все оплаты</th>
+				<th>Долг</th>		
+			</tr>
+		</thead>
+
+		<tbody>	
+			<% @customer.payments.each do |p| %>
+				<tr>
+					<td><%= p.payment_date %></td>
+					<td><%= p.gym.nil? ? "" : p.gym.title %></td>
+					<td><%= p.gym.nil? ? "" : p.gym.price %></td>
+					<td><%= p.debt %></td>
+				</tr>
+			<% end %>
+				
+		</tbody>	
+	</table>
+</div>	
+<!-- table end  -->
+
+
+
+
+
+
+</div>

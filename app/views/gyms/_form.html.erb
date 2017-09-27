@@ -1,0 +1,25 @@
+<%= bootstrap_form_for(@gym) do |form| %>
+  <% if gym.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(gym.errors.count, "error") %> prohibited this gym from being saved:</h2>
+
+      <ul>
+      <% gym.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.text_field :title, id: :gym_title, placeholder: 'вид спорта...' %>
+  </div>  
+  <div class="field">
+    <%= form.number_field :price, id: :gym_plan, placeholder: 'план...' %>
+  </div>
+
+  <div class="actions">
+    <%= link_to '', gym, class: 'fa fa-list fa-fw btn btn-primary' %></td>
+    <%= form.submit  class: 'btn btn-success'%>
+  </div>
+<% end %>

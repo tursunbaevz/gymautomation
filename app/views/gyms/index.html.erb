@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<div class="wrap">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Виды спорта</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @gyms.each do |gym| %>
+        <tr>
+          <td><%= gym.title %></td>
+          <td><%= gym.price %></td>
+          <td><%= link_to '', edit_gym_path(gym), class: 'fa fa-pencil btn btn-primary' %>
+          <%= link_to '', gym, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-trash-o btn btn-danger' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'Добавить новый вид спорта', new_gym_path %>
+</div>
