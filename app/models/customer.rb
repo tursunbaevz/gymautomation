@@ -3,6 +3,7 @@ class Customer < ApplicationRecord
 
 
 	validates :published_on, :presence => true
+	
 
 	
 	accepts_nested_attributes_for :payments, allow_destroy: true

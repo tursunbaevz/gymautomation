@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20170910165515) do
     t.decimal "number"
     t.decimal "second_number"
     t.date "published_on"
+    t.date "date_of_birth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -35,7 +36,7 @@ ActiveRecord::Schema.define(version: 20170910165515) do
   end
 
   create_table "payments", force: :cascade do |t|
-    t.decimal "debt"
+    t.decimal "price"
     t.date "payment_date"
     t.integer "customer_id"
     t.integer "gym_id"

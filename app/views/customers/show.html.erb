@@ -5,62 +5,87 @@
 
 <!-- notice end -->
 
-<div class="wrap">
+<div class="show-page">
 	<!--  Вся информация клиента - all customers info  -->
-	<div class="created-date">
-		<time datetime="2014-09-24" class="date-as-calendar inline-flex size2x">
-			<span class="day"><%= @customer.published_on.strftime("%e") %></span>
-			<span class="month"><%= @customer.published_on.strftime("%B") %>	</span>
-			<span class="year"><%= @customer.published_on.strftime("%Y") %></span>
-		</time>
+	<div class="container">	
+
+		<!-- table 1 -->
+		<div class="block">
+			<div class="row align-items-start">
+				<div class="col-5">
+					<p id="info-about-client">		Информация о клиенте</p>
+				</div>
+				<div class="col-4">
+					<li><a href="<%= edit_customer_path(@customer) %>"><i class="fa 			fa-pencil-square-o"></i>		Редактировать
+					</a></li>
+				</div>
+			</div>
+			<div class="row justify-content-start">	
+				<div class="created-date">
+					<time datetime="2014-09-24" class="date-as-calendar inline-flex size2x">
+						<span class="day"><%= @customer.published_on.strftime("%e") %></span>
+						<span class="month"><%= @customer.published_on.strftime("%B") %>	</span>
+						<span class="year"><%= @customer.published_on.strftime("%Y") %></span>
+					</time>
+				</div>	
+				<div class="col-6">		
+					<table class="table table-sm table-striped">
+						<tr>
+							<th>Имя</th>
+							<td><%= @customer.name %></td>
+						</tr>
+						<tr>
+							<th>телефон 1</th>
+							<td><%= @customer.number.to_i %></td>
+						</tr>
+						<tr>
+							<th>телефон 2</th>
+							<td><%= @customer.second_number.to_i %>
+								</td>	
+						</tr>
+						<tr>
+							<th>дата рождения</th>
+							<td><%= @customer.date_of_birth %></td>
+						</tr>
+					</table>	
+				</div>
+			</div>
+		</div>	
 
 
-	<div class="info-show">
-		  <strong>Имя &nbsp; - &nbsp; </strong>
-		  <%= @customer.name %>
-
-		<br>
-
-		 
-		тел1: &nbsp;<%= @customer.number.to_i %>   <br>
-		тел2: &nbsp;<%= @customer.second_number.to_i %> 
-	</div>
-
-</div>
-
-<%= link_to 'изменить', edit_customer_path(@customer) %> |
-<%= link_to 'назад', customers_path %>
+	 
+		<%#= link_to 'назад', customers_path %>
 
 
-<!-- table -->
-	<table class="table table-bordered">
-		<thead class="thead-inverse">	
-			<tr>
-				<th>Дата оплаты</th>		
-				<th>Вид спорта</th>		
-				<th>Все оплаты</th>
-				<th>Долг</th>		
-			</tr>
-		</thead>
+		<!-- table 2 -->
+			<p class="payment-story-title"> История платежей клиента </p>
+			<table class="table table-bordered">
+				<thead>	
+					<tr class="table-active">
+						<th>Дата оплаты</th>		
+						<th>Вид спорта</th>		
+						<th>Стоимость</th>
+						<th>Оплатил</th>		
+						<th>Долг</th>	
+						<th class="info">Общий долг</th>	
+					</tr>
+				</thead>
 
-		<tbody>	
-			<% @customer.payments.each do |p| %>
-				<tr>
-					<td><%= p.payment_date %></td>
-					<td><%= p.gym.nil? ? "" : p.gym.title %></td>
-					<td><%= p.gym.nil? ? "" : p.gym.price %></td>
-					<td><%= p.debt %></td>
-				</tr>
-			<% end %>
-				
-		</tbody>	
-	</table>
-</div>	
-<!-- table end  -->
-
-
-
-
-
-
+				<tbody class="table-body">	
+					<% total_debt = 0 %>
+					<% @customer.payments.each do |p| %>
+						<tr>
+							<td><%= p.payment_date %></td>
+							<td><%= p.gym.nil? ? "" : p.gym.title %></td>
+							<td><%= p.gym.nil? ? "" : p.gym.price.to_i %>.сом</td>
+							<td><%= p.price.to_i %>.сом</td>
+							<td><%= p.gym.price.to_i - p.price.to_i %>.сом</td>
+							<td class="danger"><%= total_debt.to_i %>.сом</td>
+						</tr>
+						<% total_debt = total_debt + p.gym.price - p.price %>
+					<% end %>	
+				</tbody>	
+			</table>
+	</div>	
+	<!-- table end  -->
 </div>

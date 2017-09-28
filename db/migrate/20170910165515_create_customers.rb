@@ -5,6 +5,7 @@ class CreateCustomers < ActiveRecord::Migration[5.1]
       t.decimal :number
       t.decimal :second_number
       t.date :published_on
+      t.date :date_of_birth
 
       t.timestamps
     end
@@ -19,7 +20,7 @@ class CreateCustomers < ActiveRecord::Migration[5.1]
     end
 
     create_table :payments do |t|
-      t.decimal :debt
+      t.decimal :price
       t.date :payment_date
       t.integer :customer_id
       t.integer :gym_id

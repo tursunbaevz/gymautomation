@@ -1,19 +1,23 @@
 <fieldset>
 
     <div class="row">
-      <div class="col"><%= f.date_field :payment_date %></div>
+      <div class="col-4"><%= f.date_field :payment_date %></div>
       <div class="col"> <%= f.collection_select :gym_id, Gym.all, :id, :title, {:include_blank => '----'}  %></div>
-      <div class="w-100"><hr style="width: 100%;"></div>
-      <div class="col"><%= f.collection_select :gym_id, Gym.all, :id, :price, {:include_blank => '----'}  %></div>
-      <div class="col"><%= f.number_field :debt %></div>
+      <div class="w-100"></div>
+      <div class="col-4"><%= f.collection_select :gym_id, Gym.all, :id, :price, {:include_blank => '----'}  %></div>
+      <div class="col"><%= f.number_field :price %></div>
     </div>
 
     <%= f.hidden_field :_destroy %>
-   
-	<li class="remove-btn">
-	  <a  class="remove_fields" href="#">
-	  <i class="fa fa-minus-circle"></i>Удалить</a>
-	</li>
+
+    <div class="remove-btn">
+      <li>
+        <a  class="remove_fields" href="#">
+        <i class="fa fa-minus-circle"></i>Удалить</a>
+      </li>
+    </div>
+
+    <hr style="width: 100%;">
 </fieldset>
 
  

@@ -51,7 +51,7 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       if @customer.update(customer_params)
-        format.html { redirect_to customers_path, notice: 'Customer was successfully updated.' }
+        format.html { redirect_to customer_path, notice: 'Customer was successfully updated.' }
         format.json { render :show, status: :ok, location: @customer }
       else
         format.html { render :edit }
@@ -78,6 +78,6 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.require(:customer).permit(:name, :number, :second_number, :published_on,   payments_attributes: [:id, :debt, :payment_date, :gym_id] )
+      params.require(:customer).permit(:name, :number, :second_number, :published_on, :date_of_birth,  payments_attributes: [:id, :price, :payment_date, :gym_id] )
     end
 end

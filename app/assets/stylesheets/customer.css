@@ -19,7 +19,16 @@
 /*----------- table ----------- */
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-  background-color: #e6d6ef !important;
+  background-color: #f8f2ff !important;
+}
+
+table.table thead.thead-color {
+  background-color: rgb(203, 200, 255); 
+}
+
+
+.payment-story-title {
+  font-size: 25px;
 }
  
 
@@ -53,23 +62,45 @@ div.add-field{
 
 
 
-li.remove-btn {
-  padding-left: 630px;
+div.remove-btn {
+  padding-left: 20px;
+  padding-top: 10px;
 }
 
 
- li.remove-btn a {
+ div.remove-btn li a {
   color: red;
+  font-size: 18px;
 }
+
+
 
 
 
 /*--------- show page -------*/
 
-.info-show {
-  float: right;
-  padding-right: 400px;
+div.show-page {
+  padding-left: 140px;
+  padding-top: 80px;
+}
 
+div.block {
+  width: 100%;
+  height: 200px;
+  border-radius: 50px 0 0 50px;
+  padding-left: 19px;
+}
+
+div.col-5 p#info-about-client {
+  font-size: 20px;
+}
+
+div.col-4 li a i.fa-pencil-square-o  {
+    font-size: 20px;
+}
+
+.table-body tr td {
+  background-color: rgba(204, 204, 204, 0.2);
 }
 
 
