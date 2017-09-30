@@ -15,16 +15,14 @@
 <div class="contaier">   
     <div class="row">
       <div class="col-4"><%= f.text_field :name %></div>
-      <div class="col"><%= f.number_field :number %></div>
+      <div class="col"><%= f.text_field :date_of_birth, :class => 'datepicker'  %></div>
       <div class="w-100"></div>
-      <div class="col"><%= f.date_field :published_on  %></div>
+      <div class="col"><%= f.number_field :number %></div>
       <div class="col"><%= f.number_field :second_number %></div>
-      <div class="col"><%= f.date_field :date_of_birth %></div>
+      <div class="col"><%= f.text_field :published_on, :class => 'datepicker'  %></div>
     </div>
-      
              
     <br>
-        
        
    
   <!-- tabs -->

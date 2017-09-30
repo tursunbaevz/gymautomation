@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery3
+//= require jquery-ui/datepicker
 //= require jquery.turbolinks
 //= require rails-ujs
 
@@ -41,6 +42,9 @@ $(document).ready(function(){
       return event.preventDefault();
     });
   });
+
+
+
 });
 
 

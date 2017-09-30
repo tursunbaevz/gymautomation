@@ -1,2 +1,3 @@
-
+jQuery ->
+ $('.datepicker').datepicker(changeMonth: true, changeYear: true );
 

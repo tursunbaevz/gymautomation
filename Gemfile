@@ -69,9 +69,7 @@ gem 'better_errors', '~> 1.1.0'
 gem 'binding_of_caller'
 
 
-
-
-
+gem 'jquery-ui-rails', '5.0.5'
 
 
 
