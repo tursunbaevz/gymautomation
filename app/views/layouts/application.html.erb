@@ -23,10 +23,18 @@
 			<div class="sidebar-white"></div>
 			<ul class="nav nav-sidebar">
 				
-				<li class="main-page" id="active"> <a href="<%= root_path %>"?><i class="fa fa-pencil-square fa-lg" aria-hidden="true"></i>Добавить клиента</a></li>
+				<li class="main-page" id="active"> <a href="<%= root_path %>"?><i class="fa fa-pencil-square fa-lg" aria-hidden="true"></i>Добавить</a></li>
 			
-				<li class="sidebar-cusomers"> <a href="<%= customers_path %>"><i class="fa fa-database fa-lg" aria-hidden="true"></i>База клиентов</a>
+				<li class="sidebar-customers"> <a href="<%= customers_path %>"><i class="fa fa-database fa-lg" aria-hidden="true"></i>База клиентов</a>
 				</li>
+
+				<li class="sidebar-products"> <a href="<%= products_path %>"><i class="
+				fa fa-heart fa-lg" aria-hidden="true"></i>Продукты</a>
+				</li>
+				
+				<li class="sidebar-products"> <a href="<%= solds_path %>"><i class="
+				fa fa-archive fa-lg" aria-hidden="true"></i>История продаж</a>
+				</li>	
 
 				<li class="sidebar-gyms"><a href="<%= gyms_path %>"><i class="demo-icon icon-tabletennis fa-lg"></i>Виды спорта</a>
 				</li>
@@ -34,6 +42,10 @@
 				<li class="sidebar-payment"><a href="<%=  form_of_payments_path  %>"><i class="fa fa-calendar-minus-o fa-lg" aria-hidden="true"></i>форма оплаты</a></li>
 
 				<li class="sidebar-price"><a href="<%= payments_path  %> "><i class="fa fa-money fa-lg" aria-hidden="true"></i>Виды оплат</a> </li>
+
+      		
+
+				
 
 			</ul>
 		</div>

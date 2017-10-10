@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+<div class="wrap">
+
+	  <%= @product.category.name %>
+	  <%= @product.name %>
+	  <%= @product.price %>
+	  <%= @product.description %>
+	  <%= @product.p_quantity %>
+	
+
+	<%= link_to 'Edit', edit_product_path(@product) %> |
+	<%= link_to 'Back', products_path %>
+</div>

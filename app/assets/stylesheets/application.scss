@@ -28,6 +28,7 @@
 
 
 
+
 body {
 	margin: 0px;
 	padding: 0px;
@@ -36,10 +37,11 @@ body {
 }
 
 
-form {
+div.forma {
 	padding-left: 200px;
 	padding-top: 70px;
 }
+
 
 li {
 	list-style: none;
@@ -80,7 +82,7 @@ a {
 
 #sidebar{
 	background:  #322a38;
-	width: 175px;
+	width: 190px;
 	display: block;
 	height: 100%;
 	position: fixed;

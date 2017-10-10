@@ -1,7 +1,7 @@
 <fieldset>
 
     <div class="row">
-      <div class="col" ><%= f.date_field :payment_date  %></div>
+      <div class="col"><%= f.date_field :payment_date  %></div>
       <div class="col"> <%= f.collection_select :gym_id, Gym.all, :id, :title, {:include_blank => '----'}  %></div>
       <div class="w-100"></div>
       <div class="col"><%= f.collection_select :gym_id, Gym.all, :id, :price, {:include_blank => '----'}  %></div>
@@ -9,14 +9,17 @@
     </div>
 
 
-    <%= f.hidden_field :_destroy %>
-
-    <div class="remove-btn">
+    
+ <!--    <div class="remove-btn">
       <li>
         <a  class="remove_fields" href="#">
         <i class="fa fa-minus-circle"></i>Удалить</a>
       </li>
     </div>
+    -->
+      <%= link_to "remove", '#', class: "remove_fields" %>
+      <%= f.hidden_field :_destroy %>
+
 
     <hr style="width: 100%;">
 </fieldset>

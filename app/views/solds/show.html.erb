@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+<div class="wrap">
+	<p>
+	  <strong>Quantity:</strong>
+	  <%= @sold.sold_quantity %>
+	</p>
+
+	<p>
+	  <strong>Sold date:</strong>
+	  <%= @sold.sold_date %>
+	</p>
+
+	<%= link_to 'Edit', edit_sold_path(@sold) %> |
+	<%= link_to 'Back', solds_path %>
+</div>

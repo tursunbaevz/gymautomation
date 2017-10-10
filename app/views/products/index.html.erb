@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="wrap">
+    <p id="notice"><%= notice %></p>
+
+    <!-- кнопка для сохдания продукта - Btn for adding product -->
+    <div id="btn-modal">  
+      <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        Сделать продажу
+      </button>
+    </div>
+
+
+   
+
+
+    <h1 class="product-title">Продукты</h1>
+
+    <div class="table-style">
+      <table class="table table-bordered table-sm">
+        <thead>
+          <tr>
+            <th>Категория</th>
+            <th>Наименование</th>
+            <th>Остаток</th>
+            <th>сумма за. ед.</th>
+            <th>Продано шт.</th>
+            <th></th>
+            <th></th>
+            <th></th>
+     
+          </tr>
+        </thead>
+
+
+
+        <tbody>
+
+      
+          <% @products.each do |product| %>
+            <tr>
+              <td><%= product.category.nil? ? "" : product.category.name %></td>
+              <td><%= product.name %></td>
+              <td><%= product.p_quantity.to_i %></td>
+              <td><%= product.price %>.сом</td>
+              <td><%= product.solds.map{|s| s.sold_quantity.to_i}.join(", ") %></td>
+
+
+              <td><%= link_to 'показать', product %></td>
+              <td> <%= link_to '', edit_product_path(product), class: 'fa fa-pencil btn btn-primary' %></td>
+              <td> <%= link_to '', product, method: :delete, data: { confirm: 'Are you sure?' },class: 'fa fa-trash-o btn btn-danger' %></td>
+            </tr>
+
+
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+
+
+  
+
+    <!-- Button trigger modal -->
+     
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Сделать продажу (ошибки должны выходить сдесь)</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= render :partial => 'solds/form' %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+ 
+   
+
+  </div>
+</div>

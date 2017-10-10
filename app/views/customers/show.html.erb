@@ -67,8 +67,8 @@
 						<th>Стоимость</th>
 						<th>Оплатил</th>		
 						<th>Долг</th>	
-						<th class="info">Общий долг</th>	
 					</tr>
+							
 				</thead>
 
 				<tbody class="table-body">	
@@ -80,11 +80,14 @@
 							<td><%= p.gym.nil? ? "" : p.gym.price.to_i %>.сом</td>
 							<td><%= p.price.to_i %>.сом</td>
 							<td><%= p.gym.price.to_i - p.price.to_i %>.сом</td>
-							<td class="danger"><%= total_debt.to_i %>.сом</td>
 						</tr>
-						<% total_debt = total_debt + p.gym.price - p.price %>
+							<% total_debt = total_debt + p.gym.price - p.price %>
 					<% end %>	
 				</tbody>	
+				<tr>
+					<th class="info">Общий долг</th>
+					<td class="danger"><%= total_debt.to_i %>.сом</td>
+				</tr>
 			</table>
 	</div>	
 	<!-- table end  -->

@@ -1,3 +1,3 @@
 jQuery ->
- $('.datepicker').datepicker(changeMonth: true, changeYear: true );
+ $('.datepicker').datepicker(changeMonth: true, changeYear: true , dateFormat: 'yy-mm-dd') 
 

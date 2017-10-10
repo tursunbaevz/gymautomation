@@ -73,7 +73,10 @@ div.remove-btn {
   font-size: 18px;
 }
 
-
+fieldset {
+    min-width: 0;
+    padding: 15 !important;
+}
 
 
 

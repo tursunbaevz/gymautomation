@@ -35,5 +35,41 @@ class CreateCustomers < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
+
+    create_table :categories do |t|
+      t.string :name
+
+      t.timestamps
+    end
+
+
+    create_table :products do |t|
+      t.string :name
+      t.string :price
+      t.string :description
+      t.decimal :p_quantity
+      t.integer :category_id
+      
+      t.timestamps
+    end
+
+
+    create_table :solds do |t|
+      t.decimal :sold_quantity
+      t.date :sold_date
+      t.integer :product_id 
+
+
+      t.timestamps
+    end
+
+
+    # create_table :sold_products do |t|
+    #   t.integer :sold_id  
+    #   t.integer :product_id  
+      
+    #   t.timestamps
+    # end
+
   end
 end

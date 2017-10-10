@@ -1,0 +1,2 @@
+module SoldsHelper
+end

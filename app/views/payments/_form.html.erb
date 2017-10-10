@@ -1,27 +1,27 @@
-<%= form_with(model: payment, local: true) do |form| %>
-  <% if payment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
+<div class="forma">
+  <%= bootstrap_form_for  @payment do |form| %>
+    <% if payment.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
 
-      <ul>
-      <% payment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% payment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.text_field :price, id: :payment_price %>
+    </div>
+
+    <div class="field">
+      <%= form.date_select :payment_date, id: :payment_payment_date %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, id: :payment_price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :payment_date %>
-    <%= form.date_select :payment_date, id: :payment_payment_date %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

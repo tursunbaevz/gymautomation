@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :solds
+  resources :categories
+  resources :products
   resources :payments
   resources :form_of_payments
   resources :gyms

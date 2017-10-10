@@ -22,6 +22,8 @@ class CustomersController < ApplicationController
   def new
     @gyms = Gym.all
     @customer = Customer.new  
+
+    1.times { @customer.payments.build }
   end
 
   # GET /customers/1/edit
@@ -78,6 +80,6 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.require(:customer).permit(:name, :number, :second_number, :published_on, :date_of_birth,  payments_attributes: [:id, :price, :payment_date, :gym_id] )
+      params.require(:customer).permit(:id, :name, :number, :second_number, :published_on, :date_of_birth,   payments_attributes: [:id, :_destroy, :price, :payment_date,  :gym_id] )
     end
 end

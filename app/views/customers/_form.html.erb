@@ -1,65 +1,67 @@
-<%= bootstrap_form_for(@customer)  do |f|  %>
-    <% if @customer.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+<div class="forma">
+  <%= bootstrap_form_for(@customer)  do |f|  %>
+      <% if @customer.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
 
-        <ul>
-        <% customer.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
+          <ul>
+          <% customer.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+    <!-- form -->
+  <div class="contaier">   
+      <div class="row">
+        <div class="col-4"><%= f.text_field :name %></div>
+        <div class="col"><%= f.text_field :date_of_birth, :class => 'datepicker'  %></div>
+        <div class="w-100"></div>
+        <div class="col"><%= f.number_field :number %></div>
+        <div class="col"><%= f.number_field :second_number %></div>
+        <div class="col"><%= f.text_field :published_on, :class => 'datepicker'  %></div>
       </div>
-    <% end %>
-
-  <!-- form -->
-<div class="contaier">   
-    <div class="row">
-      <div class="col-4"><%= f.text_field :name %></div>
-      <div class="col"><%= f.text_field :date_of_birth, :class => 'datepicker'  %></div>
-      <div class="w-100"></div>
-      <div class="col"><%= f.number_field :number %></div>
-      <div class="col"><%= f.number_field :second_number %></div>
-      <div class="col"><%= f.text_field :published_on, :class => 'datepicker'  %></div>
-    </div>
-             
-    <br>
-       
-   
-  <!-- tabs -->
+               
+      <br>
+         
+     
+    <!-- tabs -->
 
 
-      <ul class="nav nav-tabs" role="tablist" >
-        <li class="nav-item">
-            <a class="nav-link active" 
-              href="#payments"  
-              data-toggle="tab">Добавить оплату
+        <ul class="nav nav-tabs" role="tablist" >
+          <li class="nav-item">
+              <a class="nav-link active" 
+                href="#payments"  
+                data-toggle="tab">Добавить оплату
+              </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link"
+              href="#sports" role="tab" 
+              data-toggle="tab">TODO
             </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link"
-            href="#sports" role="tab" 
-            data-toggle="tab">TODO
-          </a>
-        </li>
-      </ul> 
-      
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="payments">
-            <%= f.fields_for :payments do |builder| %>
-              <%= render 'payment_fields', f: builder %>   
-            <% end %>
-          <div class="add-field">
-            <%= link_to_add_fields "Добавить оплату", f, :payments  %> 
+          </li>
+        </ul> 
+        
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="payments">
+              <%= f.fields_for :payments do |builder| %>
+                <%= render 'payment_fields', f: builder %>   
+              <% end %>
+            <div class="add-field">
+              <%= link_to_add_fields "Добавить оплату", f, :payments  %> 
+            </div>
           </div>
         </div>
+
+      
+      <div class="form-group" id="btn-action">
+        <input class="btn btn-success" name="commit" type="submit" value="Сохранить">
       </div>
 
-    
-    <div class="form-group" id="btn-action">
-      <input class="btn btn-success" name="commit" type="submit" value="Сохранить">
-    </div>
-
-</div>   
-<% end %>
+  </div>   
+  <% end %>
+</div>
 

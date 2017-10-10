@@ -11,7 +11,6 @@ gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -60,14 +59,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap', '~> 4.0.0.beta'
 gem 'bootstrap_form'
 
-
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 
-
 gem 'better_errors', '~> 1.1.0'
 gem 'binding_of_caller'
-
 
 gem 'jquery-ui-rails', '5.0.5'
 
