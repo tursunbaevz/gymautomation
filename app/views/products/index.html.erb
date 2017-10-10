@@ -49,11 +49,11 @@
               <td> <%= link_to '', edit_product_path(product), class: 'fa fa-pencil btn btn-primary' %></td>
               <td> <%= link_to '', product, method: :delete, data: { confirm: 'Are you sure?' },class: 'fa fa-trash-o btn btn-danger' %></td>
             </tr>
-
-
           <% end %>
+
         </tbody>
       </table>
+          <%= link_to 'Добавить Продукт', new_product_path, class: 'btn btn-primary' %>
     </div>
 
 
@@ -74,7 +74,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <%= render :partial => 'solds/form' %>
+              <%= render :partial => 'solds/modal_window' %>
             </div>
           </div>
         </div>

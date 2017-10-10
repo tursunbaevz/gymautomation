@@ -2,26 +2,42 @@
   <p id="notice"><%= notice %></p>
   <div class="wrap">
     <h1>История продаж</h1>
+     <div class="pull-right">
+        <%= form_tag solds_path, method: :get do %>
+        от &nbsp;  <%= text_field_tag 'search[date_from]', @search.date_from %> &nbsp;  
+        до &nbsp; <%= text_field_tag 'search[date_to]', @search.date_to %>
+           <button class="search-btn fa fa-search btn btn-success " type="submit"> </button>
+        <% end %>
+     </div> 
 
     <table class="table table-sm">
       <thead>
         <tr>
-          <th>Колличество продуктов</th>
+          <th>Наименование товара</th>
+          <th>Сумма </th>
+          <th>Колличество товара</th>
           <th>Дата продажи</th>
           <th colspan="3"></th>
         </tr>
       </thead>
 
       <tbody>
+        <% total_price = 0 %>
         <% @solds.each do |sold| %>
           <tr>
-            <td><%= sold.sold_quantity %></td>
+            <td><%= sold.product.name %></td>
+            <td><%= sold.product.price.to_i * sold.sold_quantity.to_i %>.сом</td>
+            <td><%= sold.sold_quantity.to_i %> - шт</td>
             <td><%= sold.sold_date %></td>
-            <td><%= link_to 'показать', sold %></td>
             <td><%= link_to '', edit_sold_path(sold), class: 'fa fa-pencil btn btn-primary' %>
             <%= link_to '', sold, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-trash-o btn btn-danger' %></td>
           </tr>
+          <% total_price = total_price + sold.product.price.to_i * sold.sold_quantity.to_i   %>
         <% end %>
+        <div class="total-price">
+          <p> Общая сумма - <%= total_price.to_i %>.сом </p>
+        </div>
+       
       </tbody>
     </table>
 

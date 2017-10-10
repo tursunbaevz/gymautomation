@@ -42,7 +42,7 @@ class GymsController < ApplicationController
   def update
     respond_to do |format|
       if @gym.update(gym_params)
-        format.html { redirect_to @gym, notice: 'Gym was successfully updated.' }
+        format.html { redirect_to @gym, notice: 'Был успешно обновлен.' }
         format.json { render :show, status: :ok, location: @gym }
       else
         format.html { render :edit }

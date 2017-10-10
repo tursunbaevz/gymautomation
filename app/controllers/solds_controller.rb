@@ -4,7 +4,9 @@ class SoldsController < ApplicationController
   # GET /solds
   # GET /solds.json
   def index
-    @solds = Sold.all
+    @search = SoldSearch.new(params[:search])
+    @solds = @search.scope
+
   end
 
   # GET /solds/1
