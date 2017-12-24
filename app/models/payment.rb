@@ -1,6 +1,6 @@
 class Payment < ApplicationRecord
-	belongs_to :gym, optional: true
-	belongs_to :customer, optional: true
+	belongs_to :gym
+	belongs_to :customer
 
 	validates :payment_date, :presence => true
 	validates :price, :presence => true

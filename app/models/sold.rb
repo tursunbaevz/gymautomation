@@ -2,7 +2,7 @@ class Sold < ApplicationRecord
 	# has_many :products, :through => :sold_products
 	# has_many :sold_products
 
-	belongs_to :product, :optional => true
+	belongs_to :product
 	# accepts_nested_attributes_for :sold_products, allow_destroy: true
 	
 	validate :has_enough_product

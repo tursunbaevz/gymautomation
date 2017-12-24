@@ -14,30 +14,40 @@
       <thead>
         <tr>
           <th>Наименование товара</th>
-          <th>Сумма </th>
+          <th>Сумма за ед.</th>
           <th>Колличество товара</th>
-          <th>Дата продажи</th>
-          <th colspan="3"></th>
+          <th>Общая сумма</th>
+
         </tr>
       </thead>
 
+
+          <% results = ActiveRecord::Base.connection.execute("select 
+                products.name,
+                products.price, 
+                sum(solds.sold_quantity) as total_quantity ,
+                sum(products.price * solds.sold_quantity) as total_price
+
+              from solds
+
+              left  join products on solds.product_id = products.id
+
+              group by  products.name , products.price
+
+              order by price  ")
+           %>
+                      
+
+
       <tbody>
-        <% total_price = 0 %>
-        <% @solds.each do |sold| %>
+        <% @solds.group_by { |s| s.product_id }.each do |product_id, solds| %>
           <tr>
-            <td><%= sold.product.name %></td>
-            <td><%= sold.product.price.to_i * sold.sold_quantity.to_i %>.сом</td>
-            <td><%= sold.sold_quantity.to_i %> - шт</td>
-            <td><%= sold.sold_date %></td>
-            <td><%= link_to '', edit_sold_path(sold), class: 'fa fa-pencil btn btn-primary' %>
-            <%= link_to '', sold, method: :delete, data: { confirm: 'Are you sure?' }, class: 'fa fa-trash-o btn btn-danger' %></td>
+            <td><%= solds.first.product.name %></td>
+            <td><%= solds.first.product.price %></td>
+            <td><%= solds.map{|s| s.sold_quantity.to_i }.sum.to_s %></td>
+            <td><%= solds.map{|s| s.sold_quantity * s.product.price.to_d   }.sum.to_i %></td>
           </tr>
-          <% total_price = total_price + sold.product.price.to_i * sold.sold_quantity.to_i   %>
         <% end %>
-        <div class="total-price">
-          <p> Общая сумма - <%= total_price.to_i %>.сом </p>
-        </div>
-       
       </tbody>
     </table>
 

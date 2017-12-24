@@ -1,5 +1,5 @@
 class Customer < ApplicationRecord
-	has_many :payments, :dependent => :destroy
+	has_many :payments
 
 	validates :published_on, :presence => true
 
