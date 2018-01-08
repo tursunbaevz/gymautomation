@@ -25,9 +25,6 @@
 @import "bootstrap";
 
 
-
-
-
 body {
 	margin: 0px;
 	padding: 0px;
@@ -35,10 +32,31 @@ body {
 	font-family: 'PT Serif', serif;
 }
 
+#category-a {
+	position: absolute;
+    background-color: #322A4D;
+    width: 130px !important;
+    margin-left: 15px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#category-a a:hover {
+	visibility: visible;
+	opacity: 1;
+}
 
 div.forma {
 	padding-left: 230px;
 	padding-top: 70px;
+}
+
+.gym-field {
+	margin-left: 230px;
+}
+
+.gym-btn {
+	margin-left: 183px;
 }
 
 

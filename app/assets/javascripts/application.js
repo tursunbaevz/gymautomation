@@ -11,17 +11,16 @@
 // about supported directives.
 //
 //= require jquery3
+//= require jquery_ujs
 //= require jquery.turbolinks
-
+//= require jquery-ui
 
 
 //= require popper
 //= require bootstrap-sprockets
 
 
-
 //= require_tree .
-
 
 
 
@@ -41,8 +40,6 @@ $(document).ready(function(){
       return event.preventDefault();
     });
   });
-
-
 
 });
 

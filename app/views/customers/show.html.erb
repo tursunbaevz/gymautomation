@@ -77,11 +77,11 @@
 						<tr>
 							<td><%= p.payment_date %></td>
 							<td><%= p.gym.nil? ? "" : p.gym.title %></td>
-							<td><%= p.gym.nil? ? "" : p.gym.price.to_i %>.сом</td>
+							<td><%= p.gym.nil? ? "" : p.gym.g_price.to_i %>.сом</td>
 							<td><%= p.price.to_i %>.сом</td>
-							<td><%= p.gym.price.to_i - p.price.to_i %>.сом</td>
+							<td><%= p.gym.nil? ? "" : p.gym.g_price.to_i - p.price.to_i %>.сом</td>
 						</tr>
-							<% total_debt = total_debt + p.gym.price - p.price %>
+							<% p.gym.nil? ? "" : total_debt = total_debt + p.gym.g_price - p.price %>
 					<% end %>	
 				</tbody>	
 				<tr>

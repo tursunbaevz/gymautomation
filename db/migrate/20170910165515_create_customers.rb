@@ -14,7 +14,7 @@ class CreateCustomers < ActiveRecord::Migration
 
     create_table :gyms do |t|
       t.string :title
-      t.decimal :price
+      t.decimal :g_price
       
       t.timestamps
     end

@@ -12,10 +12,17 @@
         </div>
       <% end %>
 
+      <script>
+        $(function() {
+          $('.datepicker').datepicker();
+        });
+
+      </script>
+
     <!-- form -->
   <div class="contaier">   
       <div class="row">
-        <div class="col-4"><%= f.text_field :name %></div>
+        <div class="col"><%= f.text_field :name %></div>
         <div class="col"><%= f.text_field :date_of_birth, :class => 'datepicker'  %></div>
         <div class="w-100"></div>
         <div class="col"><%= f.number_field :number %></div>
@@ -58,7 +65,7 @@
 
       
       <div class="form-group" id="btn-action">
-        <input class="btn btn-success" name="commit" type="submit" value="Сохранить">
+        <input class="btn btn-success" id="submt" name="commit" type="submit" value="Сохранить">
       </div>
 
   </div>   

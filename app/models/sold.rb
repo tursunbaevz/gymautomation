@@ -19,8 +19,8 @@ class Sold < ApplicationRecord
 		#  if it is being created
 		if id.nil? 
 
-			if product.p_quantity < sold_quantity  
-				errors.add(:sold_quantity, "Can't sell more than #{product.p_quantity}")
+			if  product.p_quantity < sold_quantity  
+				errors.add(:sold_quantity, "Вы можете продать только #{product.p_quantity} продуктов!")
 			end
 		
 		# if it is being changed
@@ -28,7 +28,7 @@ class Sold < ApplicationRecord
 				total_quantity = product.p_quantity + sold_quantity_was
 			if  total_quantity < sold_quantity
 				
-				errors.add(:sold_quantity, "Can't sell more than #{total_quantity}")
+				errors.add("Вы можете продать только #{total_quantity.to_i} продуктов!")
 			end
 		end
 

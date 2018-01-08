@@ -2,12 +2,15 @@
 
     <div class="row">
       <div class="col"><%= f.date_field :payment_date  %></div>
-      <div class="col"> <%= f.collection_select :gym_id, Gym.all, :id, :title, {:include_blank => '----'}  %></div>
+      <div class="col"> <%= f.collection_select :gym_id, Gym.all, :id, :title, prompt: true  %></div>
       <div class="w-100"></div>
-      <div class="col"><%= f.collection_select :gym_id, Gym.all, :id, :price, {:include_blank => '----'}  %></div>
-      <div class="col"><%= f.number_field :price %></div>
+      <div class="col"><%= f.collection_select :gym_id, Gym.all,  :id, :g_price, prompt: true  %></div>
+      <div class="col"><%= f.number_field :price, :class => 'price' %></div>
     </div>
 
+
+
+ 
 
     
  <!--    <div class="remove-btn">

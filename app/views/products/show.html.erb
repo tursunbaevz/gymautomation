@@ -1,13 +1,72 @@
 <p id="notice"><%= notice %></p>
 <div class="wrap">
+	<div class="main-block">
 
-	  <%= @product.category.name %>
-	  <%= @product.name %>
-	  <%= @product.price %>
-	  <%= @product.description %>
-	  <%= @product.p_quantity %>
+		<div id="product-description">
+			<%= @product.description %>
+		</div>
+
+		<div id="category-name">
+	  	 <%= @product.category.name %>	
+		</div>
+
+		<div id="product-name">
+	 	 <%= @product.name %>		
+		</div>
+
+
+		<div id="product-price">
+	  		<%= @product.price %>	
+		</div>
+
+	 	<%= @product.p_quantity %>
+		
+		<div id="edit-product">
+			<%= link_to 'Edit', edit_product_path(@product) %> |
+			<%= link_to 'Back', products_path %>	
+		</div>	
 	
 
-	<%= link_to 'Edit', edit_product_path(@product) %> |
-	<%= link_to 'Back', products_path %>
+	</div>
+
 </div>
+	<style>
+		#edit-product {
+			position: absolute;
+			bottom: 0;
+			left: 40%;
+		}
+
+		#product-description {
+			
+		}
+
+		.main-block	{
+			width: 400px;
+			height: 250px;
+			box-shadow: 0 0 4px 0 rgba(1, 1, 1, 1);
+			background-color: #ffffff;
+			text-align: center;
+		    position: relative;
+		    left: 30%;
+		    text-align: center;
+		}
+		
+		#product-price{ 
+			position: absolute;
+			position: absolute;
+		    top: 25%;
+		    left: 44%;
+		}
+
+		#product-name {
+			position: absolute;
+			right: 8%;
+		}
+
+		#category-name {
+			position: absolute;
+			left: 8%;
+
+		}
+	</style>
